@@ -85,7 +85,9 @@ pub fn prepare_flood_textures(
         let Some(target_size) = camera.physical_target_size else {
             continue;
         };
-
+        if target_size.x < 128 || target_size.y < 128 {
+            continue;
+        }
         let size = Extent3d {
             width: target_size.x,
             height: target_size.y,
